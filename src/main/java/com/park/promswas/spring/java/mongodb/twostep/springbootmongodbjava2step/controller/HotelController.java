@@ -32,8 +32,37 @@ public class HotelController {
         this.hotelRepository.save(hotel);
     }
 
-    @DeleteMapping("/{id}") // Somthing wrong with delete
+    @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable("id") String id) {
         this.hotelRepository.delete(id);
+    }
+
+    /**
+     * Filtering
+     * find by specify information
+     */
+
+    @GetMapping("/findOne/{id}")
+    public Hotel getById(@PathVariable("id") String id) {
+        Hotel hotel = this.hotelRepository.findById(id);
+        return hotel;
+    }
+
+    @GetMapping("/lessPrice/{maxPrice}")
+    public List<Hotel> getByPricePerNightLessThan(@PathVariable("maxPrice") int maxPrice) {
+        List<Hotel> hotels = this.hotelRepository.findByPricePerNightLessThan(maxPrice);
+        return hotels;
+    }
+
+    @GetMapping("/rangePrice/{minPrice}/{maxPrice}") // TODO: It's not work
+    public List<Hotel> getByMinMaxPrice(@PathVariable("minPrice") int minPrice, @PathVariable("maxPrice") int maxPrice) {
+        List<Hotel> hotels = this.hotelRepository.findByPricePerNightGreaterThanAndPricePerNightLessThan(minPrice, maxPrice);
+        return hotels;
+    }
+
+    @GetMapping("/findName/{name}")
+    public List<Hotel> getByName(@PathVariable("name") String name) {
+        List<Hotel> hotels = this.hotelRepository.findByName(name);
+        return hotels;
     }
 }

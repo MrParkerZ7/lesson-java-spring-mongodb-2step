@@ -22,33 +22,43 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-//        Hotel mareena = new Hotel("Mareena", 3500,
-//                new Address("Bangkok", "Thailand"),
-//                Arrays.asList(
-//                        new Review("Park", 8, true),
-//                        new Review("Suck", 3, false),
-//                        new Review("Fuck", 9, true),
-//                        new Review("Park", 7, true),
-//                        new Review("Rojo", 7, true)
-//                )
-//        );
-//        Hotel resident = new Hotel("Boss", 2700,
-//                new Address("Ubon", "Thailand"),
-//                Arrays.asList(
-//                        new Review("Park", 8, true),
-//                        new Review("Serker", 2, false),
-//                        new Review("Jo", 10, true),
-//                        new Review("Mice", 9, true)
-//                )
-//        );
-//        Hotel seaHotel = new Hotel("Sea", 4500,
-//                new Address("Non", "Thailand"),
-//                new ArrayList<>()
-//        );
-//
-//        this.hotelRepository.deleteAll();
-//
-//        List<Hotel> hotels = Arrays.asList(mareena, resident, seaHotel);
-//        this.hotelRepository.save(hotels);
+
+        this.hotelRepository.deleteAll();
+
+        List<Hotel> hotels = Arrays.asList(
+                new Hotel("Mareena", 3500,
+                        new Address("Bangkok", "Thailand"),
+                        Arrays.asList(
+                                new Review("Park", 8, true),
+                                new Review("Suck", 3, false),
+                                new Review("Fuck", 9, true),
+                                new Review("Park", 7, true),
+                                new Review("Rojo", 7, true))),
+                new Hotel("Boss", 2700,
+                        new Address("Ubon", "Thailand"),
+                        Arrays.asList(
+                                new Review("Park", 8, true),
+                                new Review("Serker", 2, false),
+                                new Review("Jo", 10, true),
+                                new Review("Mice", 9, true))),
+                new Hotel("Sea", 4500,
+                        new Address("Non", "Thailand"),
+                        new ArrayList<>()),
+                new Hotel("Cross", 1700,
+                        new Address("Sisaket", "Thailand"),
+                        Arrays.asList(
+                                new Review("Ken", 8, true),
+                                new Review("John", 9, true),
+                                new Review("Macro", 5, false))),
+                new Hotel("Home", 7500,
+                        new Address("Bangkok", "Thailand"),
+                        Arrays.asList(
+                                new Review("Mayu", 10, true))),
+                new Hotel("Porn Hub", 9900,
+                        new Address("Bangkok", "Thailand"),
+                        Arrays.asList(
+                                new Review("Samuji", 7, false)))
+        );
+        this.hotelRepository.save(hotels);
     }
 }
