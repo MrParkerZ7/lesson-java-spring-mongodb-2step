@@ -1,6 +1,7 @@
 package com.park.promswas.spring.java.mongodb.twostep.springbootmongodbjava2step.controller;
 
 import com.park.promswas.spring.java.mongodb.twostep.springbootmongodbjava2step.document.Hotel;
+import com.park.promswas.spring.java.mongodb.twostep.springbootmongodbjava2step.document.Review;
 import com.park.promswas.spring.java.mongodb.twostep.springbootmongodbjava2step.repository.HotelRepository;
 import org.springframework.web.bind.annotation.*;
 
@@ -54,9 +55,9 @@ public class HotelController {
         return hotels;
     }
 
-    @GetMapping("/rangePrice/{minPrice}/{maxPrice}") // TODO: It's not work
+    @GetMapping("/rangePrice/{minPrice}/{maxPrice}") 
     public List<Hotel> getByMinMaxPrice(@PathVariable("minPrice") int minPrice, @PathVariable("maxPrice") int maxPrice) {
-        List<Hotel> hotels = this.hotelRepository.findByPricePerNightGreaterThanAndPricePerNightLessThan(minPrice, maxPrice);
+        List<Hotel> hotels = this.hotelRepository.findByPricePerNightBetween(minPrice, maxPrice);
         return hotels;
     }
 
