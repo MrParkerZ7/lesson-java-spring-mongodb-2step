@@ -106,10 +106,10 @@ public class HotelController {
     public List<Hotel> getByRatePrice(@PathVariable("minRating") int minRating, @PathVariable("maxPrice") int maxPrice) {
         QHotel qHotel = new QHotel("hotel");
 
-        BooleanExpression filterByRate = qHotel.reviews.any().rating.gt(minRating);
+        BooleanExpression filterByRateGreater = qHotel.reviews.any().rating.gt(minRating);
         BooleanExpression filterByPrice = qHotel.pricePerNight.lt(maxPrice);
 
-        List<Hotel> hotels = (List<Hotel>) this.hotelRepository.findAll(filterByPrice.and(filterByRate));
+        List<Hotel> hotels = (List<Hotel>) this.hotelRepository.findAll(filterByPrice.and(filterByRateGreater));
         return hotels;
     }
 
