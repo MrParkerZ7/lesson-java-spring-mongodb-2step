@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBootMongodbJava2stepApplication {
+public class SpringMongodbJava2stepApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootMongodbJava2stepApplication.class, args);
+		SpringApplication.run(SpringMongodbJava2stepApplication.class, args);
 	}
 }

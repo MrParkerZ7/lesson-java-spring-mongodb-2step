@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class SpringBootMongodbJava2stepApplicationTests {
+public class SpringMongodbJava2StepApplicationTests {
 
 	@Test
 	public void contextLoads() {
